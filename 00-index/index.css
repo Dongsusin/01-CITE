@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 90vw;
+  height: 50vh;
+  background: #000;
+  transition: 0.25s;
+}
+.one {
+  background-image: url(./image/pokemon.png);
+}
+.two {
+  background-image: url(./image/neo.png);
+}
+.three {
+  background-image: url(./image/kakao.png);
+}
+.four {
+  background-image: url(./image/kaist.png);
+}
+.five {
+  background-image: url(./image/nexon.png);
+}
+.content {
+  position: absolute;
+  bottom: -100px;
+  color: white;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 5px 10px;
+  white-space: nowrap;
+  transition: 0.5s;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  opacity: 0;
+  transition-delay: 0s;
+  width: 100%;
+  text-align: center;
+}
+.content a {
+  color: grey;
+}
+.content a:hover {
+  color: white;
+  font-weight: 700;
+}
+.container .box {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  transition: 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: grayscale(0);
+}
+.container:hover .box {
+  filter: grayscale(1);
+}
+.container .box:hover {
+  filter: grayscale(0);
+}
+.container:has(.one:hover) {
+  grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
+}
+.container:has(.two:hover) {
+  grid-template-columns: 0.5fr 2fr 0.5fr 0.5fr 0.5fr;
+}
+.container:has(.three:hover) {
+  grid-template-columns: 0.5fr 0.5fr 2fr 0.5fr 0.5fr;
+}
+.container:has(.four:hover) {
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 2fr 0.5fr;
+}
+.container:has(.five:hover) {
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 2fr;
+}
+.container .box:nth-child(even) {
+  transform: translateY(30px);
+}
+.container .box:nth-child(odd) {
+  transform: translateY(-30px);
+}
+.container .box::after {
+  content: attr(data-text);
+  position: absolute;
+  bottom: -50px;
+  color: white;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 5px 10px;
+  white-space: nowrap;
+  transition: 0.5s;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  opacity: 0;
+  transition-delay: 0s;
+  width: 100%;
+  text-align: center;
+}
+.container .box:hover::after,
+.container .box:hover .content {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+/*반응형*/
+@media screen and (max-width: 426px) {
+  .container .box::after {
+    font-size: 0.75em;
+  }
+  .content {
+    bottom: -75px;
+    padding: 0px;
+    font-size: 0.5em;
+  }
+}
+@media screen and (max-width: 376px) {
+  .container .box::after {
+    font-size: 0.75em;
+  }
+  .content {
+    font-size: 0.4em;
+  }
+}
+@media screen and (max-width: 321px) {
+  .container .box::after {
+    font-size: 0.5em;
+  }
+  .content {
+    font-size: 0.3em;
+  }
+}

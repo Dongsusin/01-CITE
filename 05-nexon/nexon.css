@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a,
+a:link,
+a:visited {
+  color: #616161;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+/*header*/
+header {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 48px);
+  height: 80px;
+  background-color: #000;
+  transform: translate(-50%);
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: unset;
+}
+header .logo-image {
+  padding: 0 40px;
+}
+header .logo-image img {
+  vertical-align: middle;
+  max-width: 104px;
+}
+header nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+header nav ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav ul li {
+  position: relative;
+  min-height: 100%;
+  padding: 0 40px;
+}
+header nav ul li a {
+  position: relative;
+  color: #8f96a3;
+  font-weight: 500;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 80px;
+  transition: 0.5s;
+}
+header nav ul li a:hover {
+  background-image: linear-gradient(#0a3255 0%, #0aa0d2 33%, #b4e114 66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+header .action {
+  display: flex;
+  height: 100%;
+  padding: 0 40px;
+}
+header .GNB {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 90px;
+  margin-right: 32px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-align: right;
+  background: linear-gradient(92.04deg, #5ecfff -9.87%, #6bfac4 102.79%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+header .language {
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*main*/
+main {
+  width: 100%;
+  height: 100%;
+  .wrap {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+  }
+  .container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: radial-gradient(#333, #111);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+  .container video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  .scroll {
+    position: relative;
+    text-align: center;
+    bottom: 48px;
+  }
+  .scroll-button {
+    align-items: center;
+    background-color: transparent;
+    border: unset;
+    outline: none;
+    cursor: pointer;
+  }
+  .scroll-button h3 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .text-box {
+    width: auto;
+    position: relative;
+    bottom: 70%;
+    left: 10%;
+    color: #fff;
+  }
+  .rotating-text {
+    font-weight: 700;
+    font-size: 120px;
+    color: #fff;
+    p {
+      display: inline-flex;
+      margin: 0;
+      vertical-align: top;
+      .word,
+      .word2 {
+        position: absolute;
+        display: flex;
+        opacity: 0;
+        .letter {
+          transform-origin: center center 25px;
+          &.out {
+            transform: rotateX(90deg);
+            transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+          }
+          &.in {
+            transition: 0.38s ease;
+          }
+          &.behind {
+            transform: rotateX(-90deg);
+          }
+        }
+      }
+    }
+  }
+  .des {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: 33px;
+  }
+  .des-text {
+    width: auto;
+    height: 90px;
+    font-size: 17.5px;
+  }
+  .more {
+    position: relative;
+    align-items: center;
+    margin-top: 9px;
+  }
+  .more a {
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .more a span {
+    font-weight: 700;
+    font-size: 30px;
+    color: #fff;
+    transition: 0.5s;
+  }
+  .more a span:hover {
+    background-image: linear-gradient(#0a3255 0%, #0aa0d2 33%, #b4e114 66%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .blurtext {
+    color: black;
+    font-size: 75px;
+  }
+  .blurtext span {
+    background-image: linear-gradient(#0a3255 0%, #0aa0d2 33%, #b4e114 66%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    position: absolute;
+    display: block;
+    opacity: 0;
+    filter: blur(10px);
+  }
+  .blurtext span.active {
+    opacity: 1;
+    filter: blur(0px);
+    transition: opacity 1000ms linear, transform 1000ms linear,
+      filter 400ms linear, letter-spacing 1000ms linear;
+  }
+  .blurtext span.past {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 1000ms linear, transform 1000ms linear,
+      filter 400ms linear, letter-spacing 1000ms linear;
+  }
+  .location {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+}
+/*반응형*/
+@media screen and (max-width: 1024px) {
+  header nav ul li {
+    padding: 0 20px;
+  }
+  main .rotating-text {
+    font-size: 75px;
+  }
+  main .des-text {
+    height: 70px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header nav ul li {
+    padding: 0 10px;
+  }
+  header .action {
+    padding: 0 10px;
+  }
+  main .rotating-text {
+    font-size: 50px;
+  }
+  main .blurtext span {
+    font-size: 50px;
+  }
+  main .des {
+    left: 25%;
+  }
+  main .des-text {
+    height: 60px;
+  }
+  main .more {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 426px) {
+  header nav ul {
+    display: none;
+  }
+  main .blurtext span {
+    font-size: 30px;
+  }
+  main .des {
+    left: 0%;
+  }
+  main .des-text {
+    height: 90px;
+  }
+}
+@media screen and (max-width: 376px) {
+  header .GNB {
+    margin-right: 5px;
+  }
+  main .blurtext span {
+    font-size: 30px;
+    width: 80vw;
+  }
+  main .des-text {
+    font-size: 12.5px;
+  }
+}
+@media screen and (max-width: 321px) {
+  header {
+    background-color: transparent;
+    justify-content: center;
+  }
+  header nav {
+    display: none;
+  }
+  main .rotating-text {
+    font-size: 40px;
+  }
+  main .blurtext span {
+    font-size: 30px;
+    width: 80vw;
+  }
+  main .des-text {
+    font-size: 11px;
+    height: 50px;
+  }
+}
